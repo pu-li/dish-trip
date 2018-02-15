@@ -11,8 +11,8 @@ var dishList = [
   {
     name: 'Bun',
     place: "abc",
-    lat: 40.730376,
-    lon: -74.0008582,
+    lat: 40.7,
+    lon: -74.0,
     time: 'day',
   },
   {
@@ -27,7 +27,7 @@ var dishList = [
     place: "ghi",
     lat: 40.4,
     lon: -74.2,
-    time: 'either',
+    time: 'any',
   },
 ];
 
@@ -44,7 +44,7 @@ dishList.forEach(function(dishObject) {
 
   if (dishObject.time === 'day') timeColor = 'green';
   if (dishObject.time === 'night') timeColor = 'blue';
-  if (dishObject.time === 'either') timeColor = 'orange';
+  if (dishObject.time === 'any') timeColor = 'orange';
 
   var options = {
     radius: 6,
@@ -56,7 +56,7 @@ dishList.forEach(function(dishObject) {
   };
 
   var marker = L.circleMarker(latLon, options)
-      .bindPopup('Try ' + dishObject.name + ' at ' +  dishObject.place + ' during '+dishObject.time+' time.', {offset: [0, -6]})
+      .bindPopup('Try ' + dishObject.place + '"'"s"'" ' +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
       .addTo(map)
   // add the marker to the markersArray
   markersArray.push(marker);
