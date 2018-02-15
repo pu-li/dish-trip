@@ -11,22 +11,22 @@ var dishList = [
   {
     name: 'Bun',
     place: "abc",
-    lat: 40.7,
-    lon: -74.0,
+    lat: 40.700000,
+    lon: -74.000000,
     time: 'day',
   },
   {
     name: 'Burger',
     place: "def",
-    lat: 41.1,
-    lon: -73.8,
+    lat: 41.100000,
+    lon: -73.800000,
     time: 'night',
   },
   {
     name: 'Bowl',
     place: "ghi",
-    lat: 40.4,
-    lon: -74.2,
+    lat: 40.400000,
+    lon: -74.200000,
     time: 'any',
   },
 ];
