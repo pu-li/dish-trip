@@ -18,15 +18,15 @@ var dishList = [
   {
     name: 'Burger',
     place: "def",
-    lat: 41.730376,
-    lon: -73.0008582,
+    lat: 41.1,
+    lon: -73.8,
     time: 'night',
   },
   {
     name: 'Bowl',
     place: "ghi",
-    lat: 39.730376,
-    lon: -75.0008582,
+    lat: 40.4,
+    lon: -74.2,
     time: 'either',
   },
 ];
@@ -56,7 +56,7 @@ dishList.forEach(function(dishObject) {
   };
 
   var marker = L.circleMarker(latLon, options)
-      .bindPopup('Try' + dishObject.name + 'at' +  dishObject.place + 'during'+dishObject.time+'time', {offset: [0, -6]})
+      .bindPopup('Try ' + dishObject.name + ' at ' +  dishObject.place + ' during '+dishObject.time+' time.', {offset: [0, -6]})
       .addTo(map)
   // add the marker to the markersArray
   markersArray.push(marker);
