@@ -1,5 +1,5 @@
-var defaultCenter = [40.713435,-73.971291];
-var defaultZoom = 10;
+var defaultCenter = [40.721000,-73.992000];
+var defaultZoom = 13.5;
 
 var map = L.map('my-map').setView(defaultCenter, defaultZoom);
 
@@ -9,24 +9,31 @@ L.tileLayer('https://a.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.pn
 
 var dishList = [
   {
-    name: 'Bun',
-    place: "abc",
-    lat: 40.700000,
-    lon: -74.000000,
+    name: 'Uncle Jesse Bao',
+    place: "Baohaus",
+    lat: 40.7324882,
+    lon: -73.9856561,
     time: 'day',
   },
   {
-    name: 'Burger',
-    place: "def",
-    lat: 41.100000,
-    lon: -73.800000,
+    name: 'Eggplant & Eringi Hirata Buns',
+    place: "Ippudo",
+    lat: 40.730948,
+    lon: -73.990287,
+    time: 'day',
+  },
+  {
+    name: 'Carrot Waffles + Korean Fried Broccoli',
+    place: "Dirt Candy",
+    lat: 40.7179086,
+    lon: -73.990717,
     time: 'night',
   },
   {
-    name: 'Bowl',
-    place: "ghi",
-    lat: 40.400000,
-    lon: -74.200000,
+    name: 'Veggie Pho',
+    place: "V-Nam Cafe",
+    lat: 40.7235639,
+    lon: -73.9879485,
     time: 'any',
   },
 ];
@@ -56,7 +63,7 @@ dishList.forEach(function(dishObject) {
   };
 
   var marker = L.circleMarker(latLon, options)
-      .bindPopup('Try ' + dishObject.place + ',s ' +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
+      .bindPopup('Try ' + dishObject.place + "'s "  +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
       .addTo(map)
   // add the marker to the markersArray
   markersArray.push(marker);
