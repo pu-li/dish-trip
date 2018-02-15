@@ -9,21 +9,21 @@ L.tileLayer('https://a.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.pn
 
 var dishList = [
   {
-    name: 'xxx',
+    name: 'Bun',
     place: "abc",
     lat: 40.730376,
     lon: -74.0008582,
     time: 'day',
   },
   {
-    name: 'yyy',
+    name: 'Burger',
     place: "def",
     lat: 41.730376,
     lon: -73.0008582,
     time: 'night',
   },
   {
-    name: 'zzz',
+    name: 'Bowl',
     place: "ghi",
     lat: 39.730376,
     lon: -75.0008582,
