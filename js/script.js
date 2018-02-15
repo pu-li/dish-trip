@@ -56,7 +56,7 @@ dishList.forEach(function(dishObject) {
   };
 
   var marker = L.circleMarker(latLon, options)
-      .bindPopup('Try ' + dishObject.place + '"'"s"'" ' +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
+      .bindPopup('Try ' + dishObject.place + ',s ' +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
       .addTo(map)
   // add the marker to the markersArray
   markersArray.push(marker);
