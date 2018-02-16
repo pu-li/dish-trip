@@ -56,10 +56,16 @@ button {
 }
 
 .night::before {
-  background-color: blue;
+  background-color: seagreen;
 }
 
-.either::before {
-  background-color: orange;
+.any::before {
+  background-color: springgreen;
+}
+
+footer {
+  width: 25%;
+  position: fixed;
+  bottom: 10px;
 }
 ;
