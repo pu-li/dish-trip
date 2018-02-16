@@ -7,71 +7,39 @@ L.tileLayer('https://a.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.pn
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-var dishList = [
-  {
-    name: 'Uncle Jesse Bao',
-    place: "Baohaus",
-    lat: 40.7324882,
-    lon: -73.9856561,
-    time: 'day',
-  },
-  {
-    name: 'Eggplant & Eringi Hirata Buns',
-    place: "Ippudo",
-    lat: 40.730948,
-    lon: -73.990287,
-    time: 'day',
-  },
-  {
-    name: 'Carrot Waffles + Korean Fried Broccoli',
-    place: "Dirt Candy",
-    lat: 40.7179086,
-    lon: -73.990717,
-    time: 'night',
-  },
-  {
-    name: 'Veggie Pho',
-    place: "V-Nam Cafe",
-    lat: 40.7235639,
-    lon: -73.9879485,
-    time: 'any',
-  },
-];
+getPlaces((places) => {
 
+  places.forEach((place) => {
 
-// create an empty markers array that we can fill with markers
-var markersArray = [];
+    const latLon = [place.lat, place.lon];
 
-// how to add a marker for each object in the array
+    const timePalette = {
+      day: 'green',
+      night: 'seagreen',
+      any: 'springgreen',
+    };
 
-dishList.forEach(function(dishObject) {
-  var latLon = [dishObject.lat, dishObject.lon];
+     const placeColor = timePalette[place.time];
 
-  var timeColor = '#FFF';
+     const circleOptions = {
+  stroke: false,
+  radius: 6,
+  fillOpacity: 0.8,
+  fillColor: placeColor,
+  width: 0
+}
 
-  if (dishObject.time === 'day') timeColor = 'green';
-  if (dishObject.time === 'night') timeColor = 'blue';
-  if (dishObject.time === 'any') timeColor = 'orange';
-
-  var options = {
-    radius: 6,
-    opacity: 1,
-    fillColor: timeColor,
-    fillOpacity: 0.9,
-    color: '#FFF',
-    weight: 2,
-  };
-
-  var marker = L.circleMarker(latLon, options)
-      .bindPopup('Try ' + dishObject.place + "'s "  +  dishObject.name + ' at '+dishObject.time+' time.', {offset: [0, -6]})
-      .addTo(map)
-  // add the marker to the markersArray
-  markersArray.push(marker);
+L.circleMarker(latLon, circleOptions).addTo(map)
+    .bindPopup('Try ' + place.name + "'s "  +  place.dish + '!  Adress: '+ place.address +'.  Directions: ' +place.directions+, {offset: [0, -6]})
 });
+});
+// at '+place.time+' time
+
+
 
 $('.fly-to-random').click(function(e) {
-  var randomMarker = markersArray[Math.floor(Math.random() * markersArray.length)];
-  map.setView(randomMarker._latlng);
+  var randomMarker = circleOptions[Math.floor(Math.random() * circleOptions.length)];
+  map.setView(circleOptions._latlng);
   randomMarker.openPopup();
   e.stopPropagation();
 });
@@ -80,3 +48,17 @@ $('.fly-to-random').click(function(e) {
 $('.reset').click(function() {
   map.flyTo(defaultCenter, defaultZoom)
 });
+
+
+
+
+function getPlaces(callback) {
+  $.ajax({
+    //url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTtDhxGKMcnLTHkSHCURW5HACFOSPSOOGSTpEY3C7PH8Rk1Nq8ZFVvhihfVEQmGB25iyQ3e9B3ADLgY/pub?gid=0&single=true&output=csv",
+    url: "https://docs.google.com/a/nyu.edu/spreadsheets/d/e/2PACX-1vR0U1U5LUntXBlL7dUerd_omGZgR4MbND_iL4vhaAleybjLKup7UJ9m9cR2fSr9TkL7T5Un48MzeBDZ/pub?output=csv",
+    type: "GET"
+  }).done((csv) => {
+    const places = Papa.parse(csv, {header: true}).data;
+    callback(places);
+  });
+}

@@ -1,0 +1,65 @@
+#my-map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#title-container {
+  position: absolute;
+  z-index: 1000;
+  top: 11px;
+  left: 56px;
+  background: #FFF;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+h1, h3  {
+  margin: 0;
+}
+
+button {
+  outline: none;
+  padding: 6px;
+  background-color: #e6e6e6;
+  border-radius: 15px;
+}
+
+#legend {
+  float: right;
+  background: #e6e6e6;
+  padding: 12px;
+  margin-left: 15px;
+}
+
+.legendItem {
+}
+
+.legendItem::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 16.5px;
+  border: 2px solid #FFF;
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+}
+
+.day::before {
+  background-color: green;
+}
+
+.night::before {
+  background-color: blue;
+}
+
+.either::before {
+  background-color: orange;
+}
+;
