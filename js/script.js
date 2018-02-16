@@ -51,7 +51,6 @@ $('.reset').click(function() {
 
 
 
-
 function getPlaces(callback) {
   $.ajax({
     //url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTtDhxGKMcnLTHkSHCURW5HACFOSPSOOGSTpEY3C7PH8Rk1Nq8ZFVvhihfVEQmGB25iyQ3e9B3ADLgY/pub?gid=0&single=true&output=csv",
