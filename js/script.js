@@ -14,9 +14,9 @@ getPlaces((places) => {
     const latLon = [place.lat, place.lon];
 
     const timePalette = {
-      day: 'green',
-      night: 'seagreen',
-      any: 'springgreen',
+      day: 'springgreen',
+      night: 'blue',
+      any: 'turquoise',
     };
 
      const placeColor = timePalette[place.time];

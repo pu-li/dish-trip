@@ -52,15 +52,15 @@ button {
 }
 
 .day::before {
-  background-color: green;
+  background-color: springgreen;
 }
 
 .night::before {
-  background-color: seagreen;
+  background-color: blue;
 }
 
 .any::before {
-  background-color: springgreen;
+  background-color: turquoise;
 }
 
 footer {
