@@ -53,7 +53,6 @@ $('.reset').click(function() {
 
 function getPlaces(callback) {
   $.ajax({
-    //url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTtDhxGKMcnLTHkSHCURW5HACFOSPSOOGSTpEY3C7PH8Rk1Nq8ZFVvhihfVEQmGB25iyQ3e9B3ADLgY/pub?gid=0&single=true&output=csv",
     url: "https://docs.google.com/a/nyu.edu/spreadsheets/d/e/2PACX-1vR0U1U5LUntXBlL7dUerd_omGZgR4MbND_iL4vhaAleybjLKup7UJ9m9cR2fSr9TkL7T5Un48MzeBDZ/pub?output=csv",
     type: "GET"
   }).done((csv) => {
